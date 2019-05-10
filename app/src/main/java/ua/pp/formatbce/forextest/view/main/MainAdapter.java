@@ -130,16 +130,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         }
 
         private void fillFields(@Nullable UpdateChunk data) {
-            bid.setText(data == null ? "-" : String.valueOf(data.bid));
-            bidSize.setText(data == null ? "-" : String.valueOf(data.bidSize));
-            ask.setText(data == null ? "-" : String.valueOf(data.ask));
-            askSize.setText(data == null ? "-" : String.valueOf(data.askSize));
-            dailyCharge.setText(data == null ? "-" : String.valueOf(data.dailyChange));
-            dailyChargePerc.setText(data == null ? "-" : String.valueOf(data.dailyChangePercent));
-            lastPrice.setText(data == null ? "-" : String.valueOf(data.lastPrice));
-            volume.setText(data == null ? "-" : String.valueOf(data.volume));
-            high.setText(data == null ? "-" : String.valueOf(data.high));
-            low.setText(data == null ? "-" : String.valueOf(data.low));
+            itemView.post(() -> {
+                bid.setText(data == null ? "-" : String.valueOf(data.bid));
+                bidSize.setText(data == null ? "-" : String.valueOf(data.bidSize));
+                ask.setText(data == null ? "-" : String.valueOf(data.ask));
+                askSize.setText(data == null ? "-" : String.valueOf(data.askSize));
+                dailyCharge.setText(data == null ? "-" : String.valueOf(data.dailyChange));
+                dailyChargePerc.setText(data == null ? "-" : String.valueOf(data.dailyChangePercent));
+                lastPrice.setText(data == null ? "-" : String.valueOf(data.lastPrice));
+                volume.setText(data == null ? "-" : String.valueOf(data.volume));
+                high.setText(data == null ? "-" : String.valueOf(data.high));
+                low.setText(data == null ? "-" : String.valueOf(data.low));
+            });
         }
     }
 }

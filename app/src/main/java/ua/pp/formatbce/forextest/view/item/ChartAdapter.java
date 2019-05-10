@@ -66,6 +66,7 @@ class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> {
             super(itemView);
             chart = (LineChart) itemView;
             chart.getDescription().setEnabled(false);
+            chart.setScaleEnabled(false);
         }
 
         private void fillWith(ChartNumbers item) {
@@ -73,8 +74,6 @@ class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> {
             XAxis xAxis = chart.getXAxis();
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
             xAxis.setValueFormatter(new MyXAxisValueFormatter(item.getStartTime()));
-            xAxis.setAxisMaximum(item.getMaxTime());
-            xAxis.setAxisMinimum(0);
             chart.setData(item.getLineData());
             chart.notifyDataSetChanged();
         }

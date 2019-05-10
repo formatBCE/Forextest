@@ -30,7 +30,7 @@ public class ItemViewActivity extends MvpAppCompatActivity implements IItemView 
         setContentView(R.layout.activity_item_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle(getIntent().getStringExtra(EXTRA_TYPE));
+        setTitle(getIntent().getStringExtra(EXTRA_TYPE));
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
