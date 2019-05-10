@@ -25,6 +25,7 @@ public class MainActivity extends MvpAppCompatActivity implements IMainView {
     MainPresenter presenter;
     private RecyclerView recyclerView;
     private TextView tvNoContent;
+    private FloatingActionButton fab;
 
     @ProvidePresenter
     public MainPresenter providePresenter() {
@@ -37,7 +38,7 @@ public class MainActivity extends MvpAppCompatActivity implements IMainView {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> presenter.attemptToAddSubscription());
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -91,5 +92,10 @@ public class MainActivity extends MvpAppCompatActivity implements IMainView {
         final int itemCount = adapter == null ? 0 : adapter.getItemCount();
         tvNoContent.setVisibility(itemCount > 0 ? View.GONE : View.VISIBLE);
         recyclerView.setVisibility(itemCount > 0 ? View.VISIBLE : View.GONE);
+        if (itemCount > 1) {
+            fab.hide();
+        } else {
+            fab.show();
+        }
     }
 }

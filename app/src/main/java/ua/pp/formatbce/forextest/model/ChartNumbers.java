@@ -39,6 +39,7 @@ public class ChartNumbers {
         dataSet.setLineWidth(4f);
         dataSet.setCircleRadius(2f);
         dataSet.setColor(ContextCompat.getColor(context, kind.getColorRes()));
+        dataSet.setDrawValues(false);
         EventBus.getDefault().register(this);
     }
 
